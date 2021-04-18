@@ -1,1 +1,23 @@
-<p>producto works!</p>
+<div>
+    <form action="">
+
+        <label for="">Nombre</label>
+        <br>
+        <input type="text" name="nombre" [(ngModel)]="nombre">
+        <br>
+        <label for="">Cantidad</label>
+        <br>
+        <input type="range" name="cantidad" [(ngModel)]="cantidad" min="1" max="100" step="1" value="10">{{cantidad}}
+        <br>
+        <label for="">Departamento</label>
+        <br>
+        <select name="departamento" [(ngModel)]="departamento">
+          <option value="Santander">Santander</option>
+          <option value="Antioquia">Antioquia</option>
+          <option value="Bogotá">Bogotá</option>
+        </select>
+
+        <button (click)="registraProducto()" >Registrar producto</button>
+      </form>
+
+</div>
