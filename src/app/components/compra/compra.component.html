@@ -1,1 +1,16 @@
 
+<div class="col-12 border border-4 rounded-3 p-3 mt-4" *ngFor="let producto of productos; let indice = index">
+    <p class="display-7">Nombre: {{producto.nombre}}</p>
+    <p class="display-7">Cantidad: {{producto.cantidad}}</p>
+    <p class="display-7">Categoria: {{producto.categoria}}</p>
+
+    <div class="text-center">
+        <hr>
+
+    <button  *ngIf="boton == 'producto'" (click)="comprarProducto(indice)" class="btn btn-success ">Comprar</button>
+    <button *ngIf="boton == 'comprar'" (click)="eliminarProducto(producto)" class="btn btn-danger ">Eliminar</button>
+
+</div>
+</div>
+
+    

@@ -1,12 +1,15 @@
 export class Producto{
 
-    private nombre:string;
-    private cantidad:number;
-    private departamento:string;
+    nombre:string;
+    cantidad:number;
+    categoria:string;
+    tipo:boolean;
 
-    constructor(nombre:string, cantidad:number, departamento:string){
+
+    constructor(nombre:string, cantidad:number, categoria:string){
         this.nombre = nombre;
         this.cantidad = cantidad;
-        this.departamento = departamento;
+        this.categoria = categoria;
     }
+
 }

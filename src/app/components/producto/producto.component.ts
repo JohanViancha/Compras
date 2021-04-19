@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 
 @Component({
@@ -8,28 +8,24 @@ import { Producto } from 'src/app/models/producto';
 })
 export class ProductoComponent implements OnInit {
 
-  constructor() { }
+  @Output() productoNuevo = new EventEmitter<Producto>();
+  
+  producto: Producto;
 
-  nombre: string;
-  cantidad: number;
-  departamento:string;
-
-  productos:Producto[];
+  constructor() {
+    this.producto = new Producto(null,null,null);
+    this.productoNuevo = new EventEmitter();
+   }
 
   ngOnInit(): void {
-    this.nombre = "";
-    this.cantidad = 1;
-    this.departamento = "Santander";
-    this.productos = [];
+    
   }
 
   registraProducto(){
-
-    let pro = new Producto(this.nombre, this.cantidad, this.departamento);
-
-    this.productos.push(pro);
-
-    console.log(this.productos);
+    this.productoNuevo.emit(this.producto);
+    this.producto = new Producto(null,null,null);
   }
+
+ 
 
 }

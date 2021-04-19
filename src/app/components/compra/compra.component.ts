@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input,Output, OnInit } from '@angular/core';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-compra',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompraComponent implements OnInit {
 
-  constructor() { }
+  @Input() productos: Producto;
+  @Input() boton: string;
+  @Output() compraEimina =new EventEmitter<Producto>();
+  @Output() Nuevacompra = new EventEmitter<number>();
+
+  constructor() { 
+    this.Nuevacompra = new EventEmitter();
+  }
 
   ngOnInit(): void {
+
+  }
+
+  comprarProducto(producto){
+    this.Nuevacompra.emit(producto);
+
+  }
+
+  eliminarProducto(producto){
+    this.compraEimina.emit(producto);
   }
 
 }
